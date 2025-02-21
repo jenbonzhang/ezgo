@@ -17,7 +17,7 @@ go get github.com/jenbonzhang/ezgo
 
  The ezgo/maps package provides utility functions for handling nested maps in Go. It simplifies working with multi-level maps by providing functions to set values at any depth while automatically initializing missing inner maps.
 
-#### SetMapValue
+#### SetNestedMapValue
 
 Sets a value in a two-level nested map. If the inner map does not exist, it will be initialized automatically.
 
@@ -34,7 +34,7 @@ func main() {
 	nestedMap := make(map[string]map[int]int)
 
 	// Setting a value
-	ezm.SetMapValue(nestedMap, "firstKey", 100, 42)
+	ezm.SetNestedMapValue(nestedMap, "firstKey", 100, 42)
 
 	// Output the result
 	fmt.Println(nestedMap["firstKey"][100]) // Output: 42
@@ -42,7 +42,7 @@ func main() {
 
 ```
 
-#### SetMapValue3
+#### SetNestedMapValue3
 
 Sets a value in a three-level nested map with different key types at each level.
 
@@ -59,7 +59,7 @@ func main() {
 	nestedMap3 := make(map[string]map[int]map[float64]string)
 
 	// Setting a value
-	ezm.SetMapValue3(nestedMap3, "firstKey", 100, 1.23, "Value A")
+	ezm.SetNestedMapValue3(nestedMap3, "firstKey", 100, 1.23, "Value A")
 
 	// Output the result
 	fmt.Println(nestedMap3["firstKey"][100][1.23]) // Output: Value A
